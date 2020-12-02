@@ -15,5 +15,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ inputs.ghc-exe }} --version
+    - run: echo ${{ inputs.ghc-exe }} --version
       shell: bash
