@@ -1,0 +1,27 @@
+name: 'cabal-install tests'
+description: ''
+inputs:
+  ghc-version:
+    description: 'GHC version to use'
+    required: false
+    default: 'latest'
+  cabal-version:
+    description: 'cabal-install version to use'
+    required: false
+    default: 'latest'
+outputs:
+#  random-number: 
+#    description: "Random number"
+#    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - id: tools
+      uses: actions/setup-haskell@v1.1
+      with:
+        ghc-version: ${{ inputs.ghc-version }}
+        cabal-version: ${{ inputs.cabal-version }}
+
+    - run: ${{ steps.tools.ghc-path }} --version
+      shell: bash
