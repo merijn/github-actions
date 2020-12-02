@@ -15,5 +15,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ inputs.ghc-path }} --version
+    - run: echo ${{ inputs.ghc-path }}
       shell: bash
