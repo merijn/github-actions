@@ -1,7 +1,7 @@
 name: 'cabal-install tests'
 description: ''
 inputs:
-  ghc-path:
+  ghc-exe:
     description: 'GHC version to use'
     required: true
 #  cabal-version:
@@ -15,5 +15,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo ${{ inputs.ghc-path }}
+    - run: ${{ inputs.ghc-exe }} --version
       shell: bash
